@@ -21,3 +21,7 @@ Reason: Trying to gage the complexity of coding I needed by looking at the code 
 Website: github for riffusion
 https://github.com/riffusion/riffusion
 Reason: Trying to gage the complexity of coding I needed by looking at the code for a similar project
+
+Website: sonic pi
+https://sonic-pi.net/
+Reason: I wanted to explor options other than mingus
