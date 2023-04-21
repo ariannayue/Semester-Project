@@ -25,3 +25,7 @@ Reason: Trying to gage the complexity of coding I needed by looking at the code 
 Website: sonic pi
 https://sonic-pi.net/
 Reason: I wanted to explor options other than mingus
+
+Website: a youtube link tutorial for sonic pi
+https://youtu.be/QGLPinGZhfg
+Reason: I wanted to view a tutorial for this application
