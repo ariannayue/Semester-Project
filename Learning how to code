@@ -1,2 +1,48 @@
-#Lesson 1 : Notes
+#Lesson 1 : NOTES
 
+- 'b' lowers a note by one half note step
+- '#' raises a note by one half note step
+To test whether an arbitrary string is valid, we can use notes.is_valid_note(str)
+Examples of valid notes:
+notes.is_valid_note("C")
+  True
+notes.is_valid_note("D#")
+  True
+notes.is_valid_notes("Fbb")
+  True
+Examples of invalid notes:
+notes.is_valid_note("c") 
+  False #note must be capitalized
+notes.is_valid_note("D #")
+  False #cant have space in between note and sharp
+notes.is_valid_note("E-b")
+  False
+Examples of surprisingly valid notes:
+notes.is_valid_note("C#####bb")
+  True
+notes.is_valid_note("C#bb##bb##bb#")
+  True
+Basically, mingus can take any number of accidentals whether wise to do so or not. Only rule is that it has to follow the correct format
+Once accidentals get messy however, we can use remove_redundant_accidentals(note)
+Examples:
+notes.remove_redundant_accidentals("C##b")
+  'C#'
+notes.remove_redundant_accidentals("C#b#bb#b##bb"
+  'C'
+  
+#NOTES AS INTEGERS
+sometimes it is easier to work with notes as integers in range(0,12)
+- Is possible with the functions notes.note_to_int(str) and notes.int_to_note(int)
+
+#note to integer
+notes.note_to_int("C")
+  0
+notes.note_to_int("B")
+  11
+notes.note_to_int("Cb")
+  11
+notes.note_to_int("C#")
+  1
+
+
+  
