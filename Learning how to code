@@ -165,21 +165,31 @@ chords.augmented_major_seventh("C")
 >>> chords.augmented_minor_seventh("C")
 ["C", "E", "G#", "Bb"]
 
-#CHORDS BY HARMONIC FUNCTION
+#CHORDS BY HARMONIC FUNCTION, you can also use roman numals tho
 
-chords.tonic("C")
+
+chords.tonic("C") OR chords.I("C") (bc tonic is fist note)
 ["C", "E", "G"]
 >>> chords.supertonic("C")
 ["D", "F", "A"]
 >>> chords.mediant("C")
 ["E", "G", "B"]
->>> chords.subdominant("C")
+>>> chords.subdominant("C") OR chords.IV("C")
 ["F", "A", "C"]
 >>> chords.dominant("C")
 ["G", "B", "D"]
 >>> chords.submediant("C")
 ["A", "C", "E"]
 
+DOMINANT SEVENTH
+chords.V7('C')
+['G', 'B', 'D', 'F']
+
 #you can also play around with modes. 
 ionian, dorian, phrygian etc. For example, c dorian would start on c (but c is the second note of the scale), you would use B major (a whole note below C's) key signature 
 
+#INVERSIONS HERE TOO
+chords.first_inversion(["C", "E", "G"])
+["E", "G", "C"] #basically just starting on the second note
+chords.second_inversion(["C", "E", "G"]) #just starting on the third day
+["G", "C", "E"]
