@@ -43,6 +43,143 @@ notes.note_to_int("Cb")
   11
 notes.note_to_int("C#")
   1
+notes.note_to_int("Db")
+  1
+There is also a function to see if two notes are enharmonic 
+- notes.is_enharmonic(note1,note2)
 
+#integer to note
 
+notes.int_to_note(0)
+  "C"
+notes.int_to_note(1)
+  "C#"
+notes.int_to_note(2)
+  "D"
+notes.int_to_note(3)
+  "D#"
   
+#NOTES AUGMENTED
+
+notes.augment("C")
+  "C#"
+notes.augment("Cb")
+  "C"
+notes.augment("C#")
+  "C##"
+notes.augment("B")
+  "B#"
+  
+#NOTES DIMINSHED
+
+notes.diminish("C")
+  "Cb"
+notes.diminish("C#")
+  "C"
+notes.diminish("Cb")
+  "Cbb"
+notes.diminish("B#")
+  "B"
+  
+ #MINOR AND MAJOR CONVERSIONS (keys --> relative major/minor)
+ THIS DOES NOT WORK, DONT USE THIS
+
+
+ALL OF TUTORIAL TWO DOES NOT WORK
+#TUTORIAL 3
+Natural diatonic intervals
+taking the natural unison, second, third fourth, fifth, sixth, or seventh of a certain note in a CERTAIN KEY.
+
+for example
+intervals.second("C","C")
+  taking the second note starting on C in the key of C --> D
+intervals.second("E","C")
+  taking the second note starting on E in the key of C --> F
+intervals.second("E","D") 
+  taking the second note starting on E in the key of D major --> F#
+
+Absolute intervals
+intervals.minor_second("C")
+  "Db"
+ intervals.major_sixth("C")
+  "A"
+*major_fifth and major_fourth are better known as perfect_fifth and perfect_fourth
+
+Interval recognization
+
+intervals.determine("C","E"):
+  "major third"
+intervals.determine("C","B"):
+  "major seventh"
+intervals.determine("Gbb","Ab")
+  "augmented second"
+  
+ Measuring:
+ 
+ interval.measure("C","D")
+  2
+ interval.measure("D","C")
+  10
+
+#TUTORIAL 4
+triads are chords made of three notes
+
+function to make chords:
+chords.triad(note,key)
+chords.triad("E","C")
+  ["E","G","B"] --> triad starting on E, in the key of C
+chord.triad("E","E")
+  ["E", "G#", "B"] --> triad starting on E, in the key of E
+chord.triad("E","F")
+  ["E","G","Bb"] --> triad starting on E in the key of F
+  
+We may also request ALL the triads in A CERTAIN KEY with chords.triads(key):
+chords.triads("C")
+
+Can request absolute Triads:
+chords.major_triad("C")
+  ["C","E","G"]
+chords.minor_triad("C")
+   ["C","Eb","G"]
+ chords.diminished_triad("C")
+    ["C","Eb","Gb"]
+    
+ #NATURAL DIATONIC SEVENTHS
+ actual dominant sevenths use the fifth note as its root
+ https://www.libertyparkmusic.com/dominant-diminished-seventh-chords/#:~:text=A%20dominant%20seventh%20chord%20consists,(or%20minor)%20is%20G%2DB%2DD%2DF.
+ dominant sevenths (starts on fifth note) - made of a major third, perfect fifth, and minor seventh (all with respect to the root)
+ diminished seventh (starts on root) - all notes seperated by a minor third
+  
+  chords.seventh("C", "C")
+["C", "E", "G", "B"]
+>>> chords.seventh("D", "C")
+["D", "F", "A", "C"]
+>>> chords.seventh("E", "C")
+["E", "G", "B", "D"]
+
+#absolute sevenths
+chords.diminished_seventh("C")
+["C", "Eb", "Gb", "Bbb"]
+chords.augmented_major_seventh("C")
+["C", "E", "G#", "B"]
+>>> chords.augmented_minor_seventh("C")
+["C", "E", "G#", "Bb"]
+
+#CHORDS BY HARMONIC FUNCTION
+
+chords.tonic("C")
+["C", "E", "G"]
+>>> chords.supertonic("C")
+["D", "F", "A"]
+>>> chords.mediant("C")
+["E", "G", "B"]
+>>> chords.subdominant("C")
+["F", "A", "C"]
+>>> chords.dominant("C")
+["G", "B", "D"]
+>>> chords.submediant("C")
+["A", "C", "E"]
+
+#you can also play around with modes. 
+ionian, dorian, phrygian etc. For example, c dorian would start on c (but c is the second note of the scale), you would use B major (a whole note below C's) key signature 
+
