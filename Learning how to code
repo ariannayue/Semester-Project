@@ -326,13 +326,40 @@ a.octave_down()
   'A-5'
 a.change_octave(+2)
   'a-5'
+   
+TRANSPOSING
+a = Note("A")
+a.transpose("3")
+  "C#-5"
+NOTE CLASS also has minor, augmented, remove redundnant accidentals methods
+with the note class, we may create containers of note objects
+Examples:
+n = NoteContainer()
+>>> n.add_notes(["C", "E"])
+>>> n.empty()
+>>> n.add_notes(NoteContainer(["C", "E"])
+>>> n.empty()
+>>> n.add_notes([Note("C"), Note("E")])
+>>> n.empty()
+>>> n.add_notes(Note("C"))
+>>> n.add_notes(Note("E"))
+we may also remove a note object using: n.remove_note or n.remove_notes (for multiple) 
+ n = NoteContainer(["C", "E", "G"])
+>>> n.remove_notes(["C", "E"])
+['G-4']
+^^^alternative to above is to just use +/-. 
+n = NoteContainer()
+>>> n + "C"
+['C-4']
+ n = NoteContainer(["C", "E", "G"])
+>>> n - "E"
+['C-4', 'G-4']
 
+ ***note containers are like lists, indexable and mutable
+ n = NoteContainer(["C", "E", "G"])
+>>> n[0]
  
- 
- 
- 
- 
- 
+ TUTORIAL 3
  
  
  
