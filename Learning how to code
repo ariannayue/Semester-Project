@@ -193,3 +193,21 @@ chords.first_inversion(["C", "E", "G"])
 ["E", "G", "C"] #basically just starting on the second note
 chords.second_inversion(["C", "E", "G"]) #just starting on the third day
 ["G", "C", "E"]
+
+#can recognize chords
+chords.determine(["C", "E", "G"])
+['C major triad']
+
+#Tutorial 5
+MODES:
+scales.Dorin("D")
+["D", "E", "F", "G", "A", "B", "C"] #d is the second note of c major scale, so we start on , but use the c major key
+scales.Aolian("A")
+["A", "B", "C", "D", "E", "F", "G"]
+#has melodic and harmonic scales
+scales.HarmonicMinor("A")
+["A", "B", "C", "D", "E", "F", "G#"]
+ scales.MelodicMinor("A")
+["A", "B", "C", "D", "E", "F#", "G#"]
+
+
