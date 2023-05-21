@@ -143,7 +143,8 @@ chords.minor_triad("C")
    ["C","Eb","G"]
  chords.diminished_triad("C")
     ["C","Eb","Gb"]
-    
+chords.suspended_triad("C")
+["C", "F", "G"] --> a sus4 chord (ommiting the major/minor third for a perfect fourth, we can also replace it for a major second (sus2)
  #NATURAL DIATONIC SEVENTHS
  actual dominant sevenths use the fifth note as its root
  https://www.libertyparkmusic.com/dominant-diminished-seventh-chords/#:~:text=A%20dominant%20seventh%20chord%20consists,(or%20minor)%20is%20G%2DB%2DD%2DF.
@@ -210,4 +211,146 @@ scales.HarmonicMinor("A")
  scales.MelodicMinor("A")
 ["A", "B", "C", "D", "E", "F#", "G#"]
 
+#TUTORIAL 6
+in mingus, note values are represented by floating point numbers
+- a quarter note is 4, because it is 1/4 note
+- an eight is 8, because 1/8
+- sixteenthh is 16, etc. 
+Things get more complicated when we want more complex rhythms. 
 
+value.whole
+  1
+value.eight
+  8
+value.sixteenth
+  16
+  MAKING DOTTED NOTES
+ - a dot adds half the duration of the note, a second dot adds half of whatever was added before, etc. \
+ value. dots(value.eight)
+  5.33333333
+ A dotted eighth note has the length of an eighth note plus half an eighth note. 1/8 + 1/16 = 3/16 = 1 / 16 / 3. So 16/3 is the number we are looking for.
+value.dots(value.eight,2)
+4.5714285714285712
+An eigth note with two dots. so we add 1/8 + 1/16 + 1/32. which is 7/32. but we the do 1/(7/32) to flip the fraction, and this is our answer
+  MAKING TUPLETS
+ - some tuplets have predfined ratios, triplet(3:2), and quintuplet (5:4)
+ examples:
+ value.triplet(value.eight)
+ 12.0 --> ratio of 12:8 is simplified to (3:2)
+ value.quintuplet(value.eight)
+ 10.0 --> the ratio of 10:8 is simplified to (5:4)
+ value.septuplet(value.eighth)
+ 14.0 --> ratio of 14:8 can be simplified to (7:4) which is the usual septuplet ratio
+ value.septuplet(value.eighth, False)
+ 7.0 --> this gives us a ratio of 7:8 (less common septuplet ratio)
+ 
+  ADDING AND SUBTRACTING NOTE VALUES
+  value.add(value.eight,value.quarter)
+  2.666666666 ----> ADDING 1/8 + 1/4, then taking the reciprocal
+  value.add(value.eight,value.eight)
+  4.0 --> gives  us one quarter
+  value.subtract(2.666666666666666666666666,8)
+  4.0 --> we addded a dotted quarter to and eight, which gave us a quarter
+#Meters!!
+review: simple time (when each beat is divided into twos). compound time (when each beat is divided into threes)
+basically if the numerator is 2,3,4 it is simple time, compound is when the numerator is 6,9,12
+
+simple meters
+- we may use a function to check if a time signature is valid or not
+meter.is_valid((4, 4))
+True
+>>> meter.is_valid((4, 5))
+False
+>>> meter.is_valid((5, 4))
+True
+constants:
+meter.common_time
+(4, 4)
+>>> meter.cut_time
+(2, 2)
+
+ #TUTORIAL 7
+
+Functions to chores
+ [chords.I("C"), chords.IV("C"), chords.V7("C")]
+[chords.I("F"), chords.IV("F"), chords.V7("F")]
+^^not very efficient
+More efficient:
+progression = ["I", "IV", "V7"]
+progressions.to_chords(progression, "C")
+progressions.to_chords(progression, "F")
+ 
+ #determining chords
+ a = progressions.to_chords(["I", "bIV", "VIIdim7"])
+>>> a
+[['C', 'E', 'G'], ['Fb', 'Ab', 'Cb'], ['B', 'D', 'F', 'Ab']]
+>>> progressions.determine(a, "C")
+[['tonic'], ['minor subdominant'], ['subtonic diminished seventh']]
+>>> progressions.determine(a, "C", True)
+[['I'], ['bIV'], ['viidim7']]
+ 
+ #TUTORIAL 1 - the note CLASS
+ defining notes:
+ Note("C")
+'C-4'
+>>> Note("C", 4)
+'C-4'
+>>> Note("C", 5)
+'C-5'
+>>> Note("C-3")
+'C-3'
+>>> n = Note()
+>>> n.set_note("C", 5)
+>>> n
+'C-5'
+ 
+ - the note class has certain attrivutes which are accessible from outside. These include name, octave, and dynamics
+ The note class note->integer function  may be better when working with octaves
+ int(Note("C", 4))
+48
+>>> int(Note("Cb", 4))
+47
+>>> int(Note("B", 4))
+59
+Integer to note converter
+c = Note()
+c.from_int(12)
+  'C-1'
+METHODS OF THE NOTE CLASS
+
+Octaves:
+a = Note("A",5)
+a.octave_up()
+  'A-6'
+a.octave_down()
+  'A-5'
+a.change_octave(+2)
+  'a-5'
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
