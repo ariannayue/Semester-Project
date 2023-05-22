@@ -359,16 +359,173 @@ n = NoteContainer()
  n = NoteContainer(["C", "E", "G"])
 >>> n[0]
  
- TUTORIAL 3
+ TUTORIAL 3 --> BARS
+ Creating a New Bar
+ a Bar() accepts a key and a meter as its optional arguments, BY DEFAULT THO the key is C and the meter is 4/4
+ b = Bar()
+ b.key.name
+  'C'
+b.meter
+(4,4)
+e = Bar('E',(6,8))
+e.key.name
+'E'
+e.meter
+(6,8)
+e.set_,eter((4,4))
+e.meter
+(4,4)
+
+ADDING NOTES AND NOTE CONTAINERS TO BAR
+b = Bar()
+b.meter
+(4,4)
+b.place_notes("A-4",4)
+True
+#this adds an A for a quarter note
+b.place_notes("C-5",4)
+True
+#another quarter note
+b.place_notes(["E-5", "G-5"],2)
+True
+b.place_notes("D",4)
+False
+#cant do this, the bar is already full
+
+ADDING RESTS
+b = Bar()
+b.place_rest(4)
+True
+b.place_notes(None,4)
+True
+
+THE OVERLOAD '+' OPERATOR 
+ *may be used to add notes, but you cant control how long you want them to be for
  
+b = Bar()
+b + "C"
+True
+b + None
+True
+
+LENGTH ATTRIBUTE
+gets calculated as meter[0] * (1.0/meter[1])
+b = Bar()
+>>> b.length
+1.0
+>>> b2 = Bar('C', (5, 4))
+>>> b.length
+1.25
+
+PRINTING A BAR, bars act as lists
+b = Bar()
+b + "C"
+True
+print b
+[[0.0, 4, ['C-4']]]
+b + "E"
+True
+print b
+[[0.0, 4, ['C-4']], [0.25, 4, ['E-4']]]
+ * i think the 0.0 means its the start of the bar 0.25 means its quarter way through when the E-4 starts plauing
  
+ CURRENT BEAT:
+ b = Bar()
+>>> b.current_beat
+0.0
+>>> b + "C"
+True
+>>> b.current_beat
+0.25
+>>> b + "D"
+True
+>>> b.current_beat
+0.5
+*sees how much weve added into the bar basically
  
+ TUTORIAL 4 --> Instruments
+ *you may edit the attributes of the Instrument class
+ i = Instrument()
+ i.name
+  "Instrument" 
+ i.range 
+  ('C-0', 'C-8')
+ i.clef
+    'bass and treble'
+  *you can edit these attributes obviously, like
+  i = Instrument()
+  i.setrange(("C","E"))
+  i.name = "Keyboard - five keys"
+  i.clef = "treble"
  
- 
- 
- 
- 
- 
+ RANGE CHECKING
+ g = Guitar()
+ p = Piano()
+ #classes
+ g.note_in_range("E")
+ g.note_in_range("E-2")
+  False
+ p.note_in_range("E-2")
+  True
+*to test multiple notes, use the function can_play_notes
+ g = Guitar()
+>>> g.can_play_notes(["A", "C", "E"])
+True
+>>> g.can_play_notes(["A-2", "C-2", "E-2"])
+False
+
+MIDI instruments
+WHOLE LIST OF THEM YAY
+look at http://bspaans.github.io/python-mingus/doc/wiki/refMingusContainersInstrument
+* from mingus.container.instrument import MidiInstrument (lowercase i)
+
+TUTORIAL 5 --> TRACKS
+to create a new , simply make a new instance of Track(). if you want to have intstrument suport, with all of its methods do this:
+t = Track(Instrument())
+
+ADDING BARS TO TRACKS:
+b = Bar()
+t = Track()
+t.add_bar(b)
+
+THE OVERLOADED '+' OPERATOR
+t = Track()
+b = Bar()
+t + b
+t + "C-4"
+  True
+  *bars and NoteContainers can be used as lists as well
+  t =Track()
+>>> b = Bar()
+>>> b + "C"
+True
+>>> t + b
+True
+>>> t[0]
+[[0.0, 4, ["C-4"]]]
+>>> t[0] = Bar()
+>>> t[0]
+[[]]
+
+TUTORIAL 6 --> Composition
+* composition class takes no argument to create
+c = Composition()
+- attributtes include setting author and title
+c = Composition()
+>>> c.set_author('Author', 'author@email.com')
+>>> c.set_title('First Mingus Composition')
+
+ADDING TRACKS
+c = Composition()
+t = Track()
+c.add_track(t)
+*composition is indexable and mutable 
+
+TUTORIAL 7 --> Suite
+*suite is used to store compositions
+s.add_composition(c)
+
+
  
  
  
