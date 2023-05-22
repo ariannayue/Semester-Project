@@ -29,3 +29,7 @@ Reason: I wanted to explor options other than mingus
 Website: a youtube link tutorial for sonic pi
 https://youtu.be/QGLPinGZhfg
 Reason: I wanted to view a tutorial for this application
+ 
+Webiste: intro to Tkinter
+https://realpython.com/python-gui-tkinter/#building-your-first-python-gui-application-with-tkinter
+Reasons: I think I will use this for the app/website component
