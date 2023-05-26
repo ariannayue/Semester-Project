@@ -33,3 +33,7 @@ Reason: I wanted to view a tutorial for this application
 Webiste: intro to Tkinter
 https://realpython.com/python-gui-tkinter/#building-your-first-python-gui-application-with-tkinter
 Reasons: I think I will use this for the app/website component
+
+Website: tutorials point
+https://www.tutorialspoint.com/determine-which-button-was-pressed-in-tkinter#:~:text=Let%20us%20suppose%20that%20we,the%20button%20that%20is%20clicked.
+Reasons: button tutorial
