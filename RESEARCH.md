@@ -37,3 +37,7 @@ Reasons: I think I will use this for the app/website component
 Website: tutorials point
 https://www.tutorialspoint.com/determine-which-button-was-pressed-in-tkinter#:~:text=Let%20us%20suppose%20that%20we,the%20button%20that%20is%20clicked.
 Reasons: button tutorial
+
+WEbsite: https://www.activestate.com/resources/quick-reads/how-to-add-images-in-tkinter/
+Reason: trying to import an image
+
