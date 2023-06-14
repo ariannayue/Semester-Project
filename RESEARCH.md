@@ -41,3 +41,9 @@ Reasons: button tutorial
 WEbsite: https://www.activestate.com/resources/quick-reads/how-to-add-images-in-tkinter/
 Reason: trying to import an image
 
+Website: https://lilypond.org/doc/v2.23/Documentation/learning/simple-notation#durations-_0028rhythms_0029
+reason: needed to learn lilypond notation
+
+Website: https://lilypond.org/doc/v2.25/Documentation/notation/key-signature
+Reason: more lilypond notation
+
